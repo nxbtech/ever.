@@ -1,0 +1,113 @@
+/* Loading Page Styles */
+#loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 1s ease-in-out;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.loader {
+    position: relative;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    z-index: 1;
+}
+
+.loading-text {
+    position: relative;
+    z-index: 1;
+}
+
+.loading-text h1, .loading-text h2 {
+    margin: 0;
+    color: #fff;
+    font-family: 'Mukta', sans-serif;
+}
+
+.loading-text h1 {
+    font-size: 120px; /* Adjust as needed */
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 4px rgb(255, 255, 255); /* White border around the text */
+}
+
+.loading-text h2 {
+    font-size: 24px; /* Adjust as needed */
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.loader img {
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+.progress-bar {
+    width: 80%; /* Adjust the width as needed */
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px auto; /* Center the progress bar */
+    position: relative;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.boat {
+    width: 330px; /* Adjust the width to make the boat bigger */
+    height: auto; /* Maintain the aspect ratio */
+    position: absolute;
+    top: -35px; /* Adjust to position the boat above the bar */
+    left: 0;
+    transform: translateX(0);
+    transition: transform 2s linear; /* Synchronize the boat with the progress bar */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes load {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Optional: Adding a smooth transition for when the loader fades out */
+#loading-page.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
